@@ -1,0 +1,11 @@
+.navbar-element:hover svg path {
+    fill: #7AB51D !important;
+}
+
+.navbar-element:hover div {
+    margin-top: -5px;
+}
+
+.navbar-element div {
+    transition: 0.3s;
+}
