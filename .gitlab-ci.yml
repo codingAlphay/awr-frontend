@@ -23,6 +23,6 @@ deploy_production:
 
 
 variables:
-  VERCEL_TOKEN=Utw4NUMVgqoLHR6vI2iRQd7o
-  VERCEL_ORG_ID=Vsv4pHsX5TjcVzprKr0Uvbt4
-  VERCEL_PROJECT_ID=prj_HSFtRJwmQWhnyLf54f8Rfy3Qg5Hq
+  VERCEL_TOKEN="Utw4NUMVgqoLHR6vI2iRQd7o"
+  VERCEL_ORG_ID="Vsv4pHsX5TjcVzprKr0Uvbt4"
+  VERCEL_PROJECT_ID="prj_HSFtRJwmQWhnyLf54f8Rfy3Qg5Hq"
