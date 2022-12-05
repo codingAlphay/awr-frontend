@@ -1,7 +1,5 @@
-
-
-function Privacy() {
-    return <div className='py-4 px-16'>
+export default function Privacy() {
+    return <div className='max-w-5xl py-8 mx-auto'>
 
         <h1>Datenschutzerkl&auml;rung</h1>
         <h2>1. Datenschutz auf einen Blick</h2>
@@ -107,4 +105,3 @@ function Privacy() {
 
     </div>
 }
-export default Privacy
