@@ -14,6 +14,7 @@ module.exports = {
         darkblue: '#222C3A',
         lightgreen: '#CFDBBC',
         lightgrey: '#F2F2F2',
+        hovergreen: "#b9d193",
       },
       fontFamily: {
         'sans': ['Open Sans', ...defaultTheme.fontFamily.sans],
