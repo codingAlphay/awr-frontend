@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../components/layout/navbar/Navbar'
 
+
 export default function Home() {
   return (
     <div>
@@ -12,3 +13,4 @@ export default function Home() {
     </div>
   )
 }
+
