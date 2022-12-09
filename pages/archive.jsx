@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import ReportListElement from '../components/layout/ReportListElement'
 import ReportTileElement from '../components/layout/ReportTileElement'
+import ReportListElementLegend from '../components/layout/ReportListElementLegend'
 import { useState } from 'react'
 
 export default function Archive({data}) {
@@ -19,6 +20,7 @@ export default function Archive({data}) {
         
         <h1>Report-Archiv</h1>
 
+        {/* Viewswitch (Listview & Gridview) */}
         <div className='flex gap-3 justify-end'>
           <div className={`hover:opacity-70 transition-all ${viewSetting == 'list' ? 'opacity-100' : 'opacity-25'}`} onClick={() => setView('list')}>
             <img src="./list-solid.svg" className='h-6 w-auto' alt="List" />
@@ -29,6 +31,7 @@ export default function Archive({data}) {
         </div>
 
         <div className=''>
+          <ReportListElementLegend></ReportListElementLegend>
           {data.map((report) => (
             <div className='modal-element' key={report.id} >
               {viewSetting === 'list' ? (
@@ -46,9 +49,14 @@ export default function Archive({data}) {
 
 export async function getStaticProps() {
   // Fetch data from reports API
-  const res = await fetch(process.env.FETCH_URL+'/api/reports')
+  const res = await fetch(process.env.FETCH_URL+'/api/reporthandler/reports')
   const data = await res.json()
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { 
+    props: {
+      data
+    },
+    revalidate: 5,
+  }
 }
