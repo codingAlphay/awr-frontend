@@ -46,17 +46,3 @@ export default function Archive({data}) {
     </div>
   )
 }
-
-export async function getStaticProps() {
-  // Fetch data from reports API
-  const res = await fetch(process.env.FETCH_URL+'/api/reporthandler/reports')
-  const data = await res.json()
-
-  // Pass data to the page via props
-  return { 
-    props: {
-      data
-    },
-    revalidate: 5,
-  }
-}
