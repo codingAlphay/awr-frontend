@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model api_results {
+  id         Int      @id @default(autoincrement())
+  date       DateTime @db.Date
+  brand      String   @db.Text
+  model      String   @db.Text
+  res_before Int
+  res_after  Int
+  workshop   String   @db.Text
+  zip        String   @db.Text
+  city       String   @db.Text
+  language   String   @db.Text
+}
+
+model api_users {
+  id        Int    @id @default(autoincrement())
+  firstname String @db.Text
+  lastname  String @db.Text
+  phone     String @db.Text
+  email     String @db.Text
+}
+
+model aw_field_test {
+  id      Int    @id @default(autoincrement())
+  country String @db.Text
+  license String @db.Text
+  type    String @db.Text
+  date    String @db.Text
+  result  String @db.Text
+  smell   String @db.Text
+  method  String @db.Text
+}
+
+model aw_result {
+  id            Int    @id @default(autoincrement())
+  date          String @db.Text
+  brand         String @db.Text
+  model         String @db.Text
+  result_before Int
+  result_after  Int
+  workshop      String @db.Text
+  zip           String @db.Text
+  residence     String @db.Text
+  language      String @db.Text
+}
+
+model awrc_v2_roles {
+  id        Int      @id
+  name      String?  @db.VarChar(255)
+  createdAt DateTime @db.DateTime(0)
+  updatedAt DateTime @db.DateTime(0)
+}
+
+model awrc_v2_users {
+  id        Int      @id @default(autoincrement())
+  username  String?  @db.VarChar(255)
+  email     String?  @db.VarChar(255)
+  password  String?  @db.VarChar(255)
+  createdAt DateTime @db.DateTime(0)
+  updatedAt DateTime @db.DateTime(0)
+}
+
+model brands {
+  brand_id   Int    @id
+  brand_name String @db.VarChar(255)
+}
+
+model logos {
+  workshop_id   String @id @db.VarChar(255)
+  logo_filename String @db.VarChar(255)
+}
+
+model reports {
+  id                String    @id @db.VarChar(255)
+  workshop_id       String    @db.VarChar(255)
+  driver_first_name String?   @db.VarChar(255)
+  driver_last_name  String?   @db.VarChar(255)
+  driver_street     String?   @db.VarChar(255)
+  driver_zip        String?   @db.VarChar(255)
+  driver_city       String?   @db.VarChar(255)
+  car_manufacturer  String?   @db.VarChar(255)
+  car_model         String?   @db.VarChar(255)
+  car_license       String?   @db.VarChar(255)
+  result_before     String?   @db.VarChar(255)
+  result_after      String?   @db.VarChar(255)
+  recommendation    String?   @db.VarChar(255)
+  month             String?   @db.VarChar(255)
+  year              String?   @db.VarChar(255)
+  pf_cleaning       String?   @db.VarChar(255)
+  ev_cleaning       String?   @db.VarChar(255)
+  pf_change         String?   @db.VarChar(255)
+  created_user_id   String    @db.VarChar(255)
+  created_on        DateTime  @db.DateTime(0)
+  last_modified     DateTime? @db.DateTime(0)
+}
+
+model strings {
+  id           Int    @id @default(autoincrement())
+  string_name  String @db.Text
+  string_lang  String @db.Text
+  string_value String @db.Text
+}
+
+model users {
+  id          String    @id @db.VarChar(255)
+  first_name  String    @db.VarChar(255)
+  last_name   String    @db.VarChar(255)
+  phone       String    @db.VarChar(255)
+  email       String    @db.VarChar(255)
+  language    String    @db.VarChar(255)
+  password    String    @db.VarChar(255)
+  registered  DateTime  @db.DateTime(0)
+  workshop_id String?   @db.VarChar(255)
+  last_login  DateTime? @db.DateTime(0)
+  dsgvo       Boolean?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model workshop_brands {
+  workshop_id Int
+  brand_id    Int
+
+  @@ignore
+}
+
+model workshops {
+  id          String   @id @db.VarChar(255)
+  name        String   @db.VarChar(255)
+  street      String   @db.VarChar(255)
+  zip_code    String   @db.VarChar(255)
+  city        String   @db.VarChar(255)
+  logo_id     String   @db.VarChar(255)
+  registered  DateTime @db.DateTime(0)
+  last_change DateTime @db.DateTime(0)
+}
