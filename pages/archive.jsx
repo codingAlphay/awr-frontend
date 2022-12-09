@@ -46,7 +46,7 @@ export default function Archive({data}) {
 
 export async function getServerSideProps() {
   // Fetch data from reports API
-  const res = await fetch('http://localhost:3000/api/reports')
+  const res = await fetch(process.env.FETCH_URL+'/api/reports')
   const data = await res.json()
 
   // Pass data to the page via props
