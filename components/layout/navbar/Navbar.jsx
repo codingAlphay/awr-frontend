@@ -13,7 +13,7 @@ export default function Navbar() {
                     <NavbarElement type={'archive'}/>
                 </div>
             </div>
-            <div className="h-28"/>
+            <div className="h-48 default-spacer"/>
         </>
     )
 }
