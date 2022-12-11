@@ -1,4 +1,4 @@
-export default function NavbarIcon({type}) {
+export default function Icon({type}) {
     
     //Report-Generator Icon
     if(type == 'generator')
@@ -36,6 +36,16 @@ export default function NavbarIcon({type}) {
         <div className="w-auto h-4 mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="21.255" height="18.598" viewBox="0 0 21.255 18.598">
                 <path id="icon" d="M1.328,32h18.6a1.327,1.327,0,0,1,1.328,1.328v1.328a1.327,1.327,0,0,1-1.328,1.328H1.328A1.327,1.327,0,0,1,0,34.657V33.328A1.327,1.327,0,0,1,1.328,32Zm0,5.314h18.6V47.941A2.659,2.659,0,0,1,17.269,50.6H3.985a2.659,2.659,0,0,1-2.657-2.657Zm5.314,3.321a.666.666,0,0,0,.664.664h6.642a.664.664,0,1,0,0-1.328H7.306A.666.666,0,0,0,6.642,40.635Z" transform="translate(0 -32)" fill="#7ab51d"/>
+            </svg>
+        </div>
+    )
+
+    //Search Icon
+    if(type == 'search')
+    return (
+        <div className="w-auto h-4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22.541" viewBox="0 0 512 512">
+                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/>
             </svg>
         </div>
     )

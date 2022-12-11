@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from 'next/router'
-import NavbarIcon from "./NavbarIcon"
+import NavbarIcon from "../utils/Icon"
 
 export default function NavbarElement({type}) {
     
