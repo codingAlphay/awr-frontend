@@ -12,16 +12,6 @@ export default function Archive({data}) {
   const [dataSet, setData ] = useState(data)
   const [searchValue, setSearchValue] = useState('');
 
-  async function sendQuery(){
-    const res = await fetch('/api/reporthandler/reports', {
-      method: 'post',
-      body: searchValue,
-    })
-    console.log(res)
-    const searchData = await res.json()
-    setData(searchData)
-  } 
-
   return (
     <div>
       <Head>
@@ -38,7 +28,7 @@ export default function Archive({data}) {
         <div className='flex items-center w-1/4 mt-12'>
           <div className="relative z-0 w-full group">
             <input
-              onChange={e => { setSearchValue(e.currentTarget.value) }}
+              onChange={e => { setSearchValue(e.currentTarget.value.toLocaleLowerCase()) }}
               type="text"
               name="search"
               id="search"
@@ -65,16 +55,32 @@ export default function Archive({data}) {
         {/* ARCHIVE-TABLE */}
         <div className=''>
           {viewSetting == 'list' && <ReportListElementLegend></ReportListElementLegend>}
-          {dataSet.map((report) => (
+          {dataSet.filter((report) =>{
+            const creation_date = new Date(report.created_on) // Save date as (Date) variable
+            const creation_month = creation_date.getMonth()+1 // Save month as variable and count +1 (0=jannuary)
+            const final_creation_date = creation_date.getDate()+'.'+creation_month+'.'+creation_date.getFullYear() // Concat strings to get full date in european way
+            const full_name = report.driver_first_name + " " + report.driver_last_name // Concat strings to get full name of owner
+            const full_car = report.car_manufacturer + " " + report.car_model // Concat strings to get full name of owner
+            return searchValue.toLocaleLowerCase() === "" ? report : (
+              full_name.toLowerCase().includes(searchValue) || 
+              report.car_license.toLowerCase().includes(searchValue) || 
+              full_car.toLowerCase().includes(searchValue) || 
+              final_creation_date.includes(searchValue))
+          })
+          .map((report) => (
             <div className='modal-element' key={report.id} >
               {viewSetting === 'list' ? (
                 <ReportListElement report={report}/>
               ) : (
                 <ReportTileElement report={report}/>
               )}
+          
             </div>
+
+
           ))}
         </div>
+        {console.log(searchValue)}
       </div>
     </div>
   )
@@ -82,10 +88,7 @@ export default function Archive({data}) {
 
 export async function getStaticProps() {
   // Fetch data from reports API
-  const res = await fetch(process.env.FETCH_URL+'/api/reporthandler/reports', {
-    method: 'post',
-    body: 'default',
-  })
+  const res = await fetch(process.env.FETCH_URL+'/api/reporthandler/reports')
   const data = await res.json()
 
   // Pass data to the page via props
