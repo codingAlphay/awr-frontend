@@ -19,7 +19,7 @@ export default function StepThree({formData, setFormData}) {
             <div className='w-full flex'>
                 {/*Take only first two form entries*/}
                 {formTable.slice(0,2).map((formElement) => (
-                    <div id={formElement} className='w-1/2 mx-2 first:ml-0 last:mr-0'>
+                    <div key={formElement} className='w-1/2 mx-2 first:ml-0 last:mr-0'>
                         <FormInput 
                             id={formElement}
                             value={formData[formElement]}
@@ -31,7 +31,7 @@ export default function StepThree({formData, setFormData}) {
             <div className='w-full flex mt-4'>
                 {/*Take only last three form entries*/}
                 {formTable.slice(2,3).map((formElement) => (
-                    <div id={formElement} className='w-full mx-2 first:ml-0 last:mr-0'>
+                    <div key={formElement} className='w-full mx-2 first:ml-0 last:mr-0'>
                         <FormInput 
                             id={formElement}
                             value={formData[formElement]}
@@ -42,7 +42,7 @@ export default function StepThree({formData, setFormData}) {
             </div>
             <div className='w-full flex mt-4'>
                 {formTable.slice(3,6).map((formElement) => (
-                    <div id={formElement} className='w-1/3 mx-2 first:ml-0 last:mr-0'>
+                    <div key={formElement} className='w-1/3 mx-2 first:ml-0 last:mr-0'>
                         <FormInput 
                             id={formElement}
                             value={formData[formElement]}
@@ -54,7 +54,7 @@ export default function StepThree({formData, setFormData}) {
             <div className='w-full flex mt-4'>
                 {/*Take only first two form entries*/}
                 {formTable.slice(6,8).map((formElement) => (
-                    <div id={formElement} className='w-1/2 mx-2 first:ml-0 last:mr-0'>
+                    <div key={formElement} className='w-1/2 mx-2 first:ml-0 last:mr-0'>
                         <FormInput 
                             id={formElement}
                             value={formData[formElement]}
