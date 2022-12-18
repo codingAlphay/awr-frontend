@@ -76,8 +76,6 @@ export default function Archive({data}) {
               )}
           
             </div>
-
-
           ))}
         </div>
         {console.log(searchValue)}
