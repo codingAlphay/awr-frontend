@@ -14,7 +14,7 @@ export default function Title({value, option}) {
     {/*Option for report generation progress headline*/}
     if(option == 3) {
         return (
-            <h3 className="text-xl font-bold text-blue">{value}</h3>
+            <h3 className="text-xl font-bold text-blue tracking-wider">{value}</h3>
         )
     }
 }

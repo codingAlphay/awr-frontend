@@ -33,6 +33,7 @@ export default function StepTwo({formData, setFormData}) {
                             id={formElement}
                             value={formData[formElement]}
                             text={temporariyLocale[formElement]}
+                            type={(formElement == 'driver_zip') ? 'number' : 'text'}
                             onChange={(event) => setFormData({...formData, [formElement]: event.target.value})}/>
                     </div>
                 ))}

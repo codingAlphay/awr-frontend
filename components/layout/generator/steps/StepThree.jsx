@@ -1,4 +1,5 @@
 import FormInput from '../../../interactive/FormInput'
+import Title from '../../../elements/Title'
 
 export default function StepThree({formData, setFormData}) {
     const temporariyLocale = {
@@ -47,11 +48,17 @@ export default function StepThree({formData, setFormData}) {
                             id={formElement}
                             value={formData[formElement]}
                             text={temporariyLocale[formElement]}
-                            onChange={(event) => setFormData({...formData, [formElement]: event.target.value})}/>
+                            setting={'checkbox'}
+                            onChange={(event) => setFormData({...formData, [formElement]: (event.target.checked == true) ? 'on' : 'off' })}
+                            checked={formData[formElement] === 'on' ? 'true' : 'false' }/>
                     </div>
                 ))}
             </div>
-            <div className='w-full flex mt-4'>
+            <div className='my-8'>
+
+                <Title option={2} value={'Nächste Reinigung'}/>
+            </div>
+            <div className='w-full flex mt-8'>
                 {/*Take only first two form entries*/}
                 {formTable.slice(6,8).map((formElement) => (
                     <div key={formElement} className='w-1/2 mx-2 first:ml-0 last:mr-0'>
