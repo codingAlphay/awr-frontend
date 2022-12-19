@@ -12,7 +12,7 @@ const uuid = require('uuid')
 
 export default function ReportGeneratorModal() {
 
-    const now = new Date().toISOString()
+    const now = new Date()
     const reportId = uuid.v4()
     const [viewStep, setViewStep] = useState(0)
     const [filled, setFilledState] = useState(false)
@@ -32,14 +32,14 @@ export default function ReportGeneratorModal() {
         result_before: '',
         result_after: '',
         recommendation: '1',
-        month: '3',
-        year: '2024',
-        pf_cleaning: 'off',
-        ev_cleaning: 'off',
-        pf_change: 'off',
+        month: now.getMonth()+1+'', //wann soll in zukunft sein, feedback einholen
+        year: now.getFullYear()+2+'',
+        pf_cleaning: 'on',
+        ev_cleaning: 'on',
+        pf_change: 'on',
         created_user_id: 'phillyderheftige@gmail.com',
-        created_on: now,
-        last_modified: now
+        created_on: now.toISOString(),
+        last_modified: now.toISOString()
     })
    
     const view = () => {
@@ -54,7 +54,7 @@ export default function ReportGeneratorModal() {
 
     return (
         <>
-            <div className='w-full max-w-5xl mx-auto '>
+            <div className='w-full max-w-4xl mx-auto'>
                 <ProcessBar step={viewStep}/>
                 <div className='px-16 pt-11 pb-6 bg-lightgrey rounded-3xl'>
                     <ProcessTitleBar step={viewStep}/>

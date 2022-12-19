@@ -7,6 +7,17 @@ export default function FormInput({text, value, id, onChange, checked, type, set
             <label htmlFor={id} className="ml-2 text-sm font-medium text-darkblue">{text}</label>
         </div>
     )
+    if(setting == 'select')
+    return (
+        <div>
+            <label for="underline_select" className="sr-only">Empfehlung</label>
+            <select id={id} onChange={onChange} value={value} className="block py-2.5 px-2 w-full text-sm text-darkblue font-bold border-0 border-b-2 border-green appearance-none focus:outline-none focus:ring-0  peer">
+                <option value="1">Reinigung durchgeführt</option>
+                <option value="2">Reinigung empfohlen</option>
+            </select>
+        </div>
+    )
+
     return (
         <div className="relative z-0 w-full mb-6 group">
             <input type={type == null ? "text" : type }  name={id} onChange={onChange} value={value} id={id} className="block py-2.5 px-0 w-full text-sm text-darkblue bg-transparent border-0 border-b-2 border-green appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
