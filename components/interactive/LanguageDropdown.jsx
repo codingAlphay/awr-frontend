@@ -12,7 +12,7 @@ export default function LanguageDropdown() {
 
   return (
     <Listbox value={selectedLanguage} onChange={setSelectedLanguage}>
-      <Listbox.Button><div className="inline-flex justify-center"><img src={selectedLanguage.icon} className="h-8 w-8" alt={selectedLanguage.name} title={selectedLanguage.name} /><img src='./langicons/chevron.svg' className="-mr-1 ml-2 mt-2 h-4 w-4 " /></div></Listbox.Button>
+      <Listbox.Button><div className="inline-flex items-center justify-center"><img src={selectedLanguage.icon} className="h-6 w-6" alt={selectedLanguage.name} title={selectedLanguage.name} /><img src='./langicons/chevron.svg' className="ml-2 h-4 w-4" /></div></Listbox.Button>
       <Listbox.Options className='bg-lightgrey absolute px-3 py-2 rounded-xl'>
         {langs.map((language) => (
           <Listbox.Option

@@ -40,6 +40,37 @@ export default function Icon({type}) {
         </div>
     )
 
+    //User Icon
+    if(type == 'user')
+    return (
+        <div className="w-auto h-4 mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16.275" height="18.6" viewBox="0 0 16.275 18.6">
+                <path id="user-solid" d="M8.137,9.3a4.65,4.65,0,1,0-4.65-4.65A4.65,4.65,0,0,0,8.137,9.3Zm-1.66,1.744A6.476,6.476,0,0,0,0,17.521,1.079,1.079,0,0,0,1.079,18.6H15.2a1.079,1.079,0,0,0,1.079-1.079A6.476,6.476,0,0,0,9.8,11.044Z" fill="#222c3a"/>
+            </svg>
+        </div>
+    )
+
+    //User active Icon (green icon)
+    if(type == 'user-active')
+    return (
+        <div className="w-auto h-4 mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16.275" height="18.6" viewBox="0 0 16.275 18.6">
+                <path id="user-solid" d="M8.137,9.3a4.65,4.65,0,1,0-4.65-4.65A4.65,4.65,0,0,0,8.137,9.3Zm-1.66,1.744A6.476,6.476,0,0,0,0,17.521,1.079,1.079,0,0,0,1.079,18.6H15.2a1.079,1.079,0,0,0,1.079-1.079A6.476,6.476,0,0,0,9.8,11.044Z" fill="#7ab51d"/>
+            </svg>
+        </div>
+    )
+
+
+    //Delete Icon
+    if(type == 'delete')
+    return (
+        <div className="w-3 h-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+            </svg>
+        </div>
+    )
+
     //Search Icon
     if(type == 'search')
     return (

@@ -33,12 +33,11 @@ export default function StepNavigationBar({formData, viewStep, setViewStep, setF
                     formData.month &&
                     formData.year) != ''
                     ) {
-                    Router.reload(window.location.pathname);
-                    fetch('/api/reporthandler/createreport', {
-                        method: 'post',
-                        body: JSON.stringify(formData)
+                        fetch('/api/reporthandler/createreport', {
+                            method: 'post',
+                            body: JSON.stringify(formData)
                         })
-                    console.log('funzt')
+                        Router.reload(window.location.pathname);
                     } else {
                         setFilledState(true)
                     }
