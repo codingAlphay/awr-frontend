@@ -82,7 +82,7 @@ export default function Archive({data}) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Fetch data from reports API
   const res = await fetch(process.env.FETCH_URL+'/api/reporthandler/reports')
   const data = await res.json()
@@ -91,7 +91,6 @@ export async function getStaticProps() {
   return { 
     props: {
       data
-    },
-    revalidate: 3,
+    }
   }
 }
