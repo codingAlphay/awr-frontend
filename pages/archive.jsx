@@ -6,7 +6,7 @@ import Title from '../components/elements/Title'
 import Icon from '../components/layout/utils/Icon'
 import { useState } from 'react'
 
-export default function Archive({data}) {
+function Archive({data}) {
 
   const [viewSetting, setView] = useState('list');
   const [dataSet, setData ] = useState(data)
