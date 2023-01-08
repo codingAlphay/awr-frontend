@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        'generator': '920px',
+      },
       colors: {
         green: '#7AB51D',
         blue: '#3365AC',

@@ -1,4 +1,4 @@
-import Icon from "./utils/Icon"
+import Icon from "../../utils/Icon"
 
 export default function ReportTileElement({report, setData}) {
     const creation_date = new Date(report.created_on)
@@ -21,13 +21,13 @@ export default function ReportTileElement({report, setData}) {
 
     return (
         <div className="w-full inline-block bg-white p-4 my-2 border-green border-b-[3px] rounded-t-md" key={report.id}>
-            <div className="flex justify-between items-center">
-                <span className="text-blue font-bold">{final_creation_date}</span>
+            <div className="flex items-center justify-between">
+                <span className="font-bold text-blue">{final_creation_date}</span>
                 <div className="-mt-1.5 fill-red-500 hover:fill-red-700" onClick={() => deleteReport(report.id)}>  
                     <Icon type={'delete'}/>
                 </div>
             </div>
-            <h2 className="font-bold uppercase text-xl">{report.car_license}</h2>
+            <h2 className="text-xl font-bold uppercase">{report.car_license}</h2>
             <div className="text-">
                 <div>{report.driver_first_name} {report.driver_last_name}</div>
                 <div>{report.car_manufacturer}</div>

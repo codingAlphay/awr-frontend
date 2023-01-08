@@ -5,8 +5,8 @@ export default function Navbar() {
 
     return (
         <>
-            <div className='fixed w-full'>
-                <div className='flex justify-between items-center mx-auto font-extrabold bg-white h-28 max-w-7xl'>
+            <div className='fixed z-10 w-full'>
+                <div className='flex items-center justify-between mx-auto font-extrabold bg-white h-28 max-w-7xl'>
                     <div className='flex items-center'>
                         <div className='mr-8'>
                             <NavbarElement type={'logo'}/>
