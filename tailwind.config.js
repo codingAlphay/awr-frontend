@@ -22,6 +22,16 @@ module.exports = {
       fontFamily: {
         'sans': ['Open Sans', ...defaultTheme.fontFamily.sans],
       },
+      animation: {
+        fade: 'fadeOut 3.1s ease-in-out',
+      },
+      keyframes: {
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '20%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        }
+      },
       /*fontSize: {
         sm: '1.2rem',
         base: '1.4rem',

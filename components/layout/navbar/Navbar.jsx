@@ -1,7 +1,7 @@
 import NavbarElement from './NavbarElement'
 import LanguageDropdown from '../../interactive/LanguageDropdown'
 
-export default function Navbar() {
+export default function Navbar({setLocale}) {
 
     return (
         <>
@@ -16,7 +16,7 @@ export default function Navbar() {
                     </div>
                     <div className='flex'>
                         <NavbarElement type={'user'}/>
-                        <LanguageDropdown/>
+                        <LanguageDropdown setLocale={setLocale}/>
                     </div>
                 </div>
             </div>

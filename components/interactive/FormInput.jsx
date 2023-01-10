@@ -1,5 +1,6 @@
-export default function FormInput({text, value, id, onChange, checked, type, setting}) {
-
+export default function FormInput({locale, text, value, id, onChange, checked, type, setting}) {
+    const t = locale
+    
     if(setting == 'checkbox')
     return (
         <div className="flex items-center mb-4">
@@ -9,12 +10,13 @@ export default function FormInput({text, value, id, onChange, checked, type, set
     )
     if(setting == 'select')
     return (
-        <div>
+        <div className="relative">
             <label for="underline_select" className="sr-only">Empfehlung</label>
             <select id={id} onChange={onChange} value={value} className="block py-2.5 px-2 w-full text-sm text-darkblue font-bold border-0 border-b-2 border-green appearance-none focus:outline-none focus:ring-0  peer">
-                <option value="1">Reinigung durchgeführt</option>
-                <option value="2">Reinigung empfohlen</option>
+                <option value="1">{t.a_c_done}</option>
+                <option value="2">{t.a_c_recommended}</option>
             </select>
+            <img src='/langicons/chevron.svg' className="absolute w-3 h-3 right-4 top-[15px]" />
         </div>
     )
 

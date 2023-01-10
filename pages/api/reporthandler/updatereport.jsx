@@ -2,7 +2,11 @@ import { prisma } from "../../../lib/prisma"
 
 export default async function handle(req, res) {
     const body = JSON.parse(req.body)
-    const report = await prisma.reports.create({
+    const now = new Date()
+    const updateReport = await prisma.reports.update({
+        where: {
+          id: body.id,
+        },
         data: {  
             id: body.id,
             workshop_id: body.workshop_id,
@@ -28,8 +32,8 @@ export default async function handle(req, res) {
             pf_change: body.pf_change,
             created_user_id: body.created_user_id,
             created_on: body.created_on,
-            last_modified: body.last_modified
+            last_modified: now.toISOString()
         },
-    })
-  res.json(report)
+      })
+  res.json(updateReport)
 }

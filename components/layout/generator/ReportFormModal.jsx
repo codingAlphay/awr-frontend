@@ -7,16 +7,15 @@ import Title from '../../elements/Title'
 import StepNavigationBar from './utils/StepNavigationBar'
 import Icon from '../utils/Icon'
 import { useState } from 'react'
-
+import Router from 'next/router'
 const uuid = require('uuid')
 
-export default function ReportFormModal({singleReportData, setSingleReportData}) {
+export default function ReportFormModal({locale, singleReportData, setSingleReportData}) {
 
     const now = new Date()
     const reportId = uuid.v4()
     const [viewStep, setViewStep] = useState(0)
-    const [filled, setFilledState] = useState(false)
-
+    const [filled, setFilledState] = useState(null)
     //ein feld kommt noch hinzu
     const [formData, setFormData] = useState(singleReportData != null ? singleReportData : {
         id: reportId,
@@ -29,11 +28,15 @@ export default function ReportFormModal({singleReportData, setSingleReportData})
         car_manufacturer: '',
         car_model: '',
         car_license: '',
+        car_year: '',
+        car_km: '',
         result_before: '',
         result_after: '',
         recommendation: '1',
-        month: now.getMonth()+1+'', //wann soll in zukunft sein, feedback einholen
-        year: now.getFullYear()+1+'',
+        cleaned_on_month: now.getMonth() + 1 + '',
+        cleaned_on_year: now.getFullYear() + '',
+        month: now.getMonth() + 1 + '', // +1 because jannuary is
+        year: now.getFullYear() + 1 + '',
         pf_cleaning: 'on',
         ev_cleaning: 'on',
         pf_change: 'on',
@@ -43,42 +46,48 @@ export default function ReportFormModal({singleReportData, setSingleReportData})
     })
 
     const view = () => {
-        if(viewStep == 0) {
-            return <StepOne formData={formData} setFormData={setFormData}/>
-        } else if(viewStep == 1) {
-            return <StepTwo formData={formData} setFormData={setFormData}/>
+        if (viewStep == 0) {
+            return <StepOne locale={locale} formData={formData} setFormData={setFormData} />
+        } else if (viewStep == 1) {
+            return <StepTwo locale={locale} formData={formData} setFormData={setFormData} />
         } else {
-            return <StepThree formData={formData} setFormData={setFormData}/>
+            return <StepThree locale={locale} formData={formData} setFormData={setFormData} />
         }
+    }
+
+    function closeCurrentReport() {
+        Router.reload(window.location.pathname);
+        setSingleReportData(null)
     }
 
     return (
         <>
             <div className='w-full mx-auto max-w-generator'>
-                <ProcessBar step={viewStep}/>
+                <ProcessBar step={viewStep} />
                 <div className='px-16 pb-6 pt-11 bg-lightgrey rounded-3xl'>
                     <div className='flex justify-between'>
-                        <ProcessTitleBar step={viewStep}/>
-                        {singleReportData != null && 
-                            <div className='scale-150 fill-red-500' onClick={() => setSingleReportData(null)}>
-                                <Icon type={'delete'}/>
+                        <ProcessTitleBar step={viewStep} />
+                        {singleReportData != null &&
+                            <div className='scale-150 fill-red-500' onClick={() => closeCurrentReport()}>
+                                <Icon type={'close'} />
                             </div>
-                        } 
+                        }
                     </div>
-                    <Title value={singleReportData == null ? 'REPORT GENERATOR' : 'REPORT: ' + singleReportData.car_license} option={1}/>
+                    <Title value={singleReportData == null ? 'REPORT CREATOR' : 'REPORT: ' + singleReportData.car_license} option={1} />
                     {view()}
                 </div>
-            </div>
 
-            {/* Errormessage if a inputfield is empty */}
-            {filled == true && 
-                <div className='flex justify-center'>
-                    <div className='inline-flex items-center px-4 py-1 mt-6 border-4 rounded-md error-message border-green'>
-                        <span className='mr-3 text-4xl font-extrabold text-green'>!</span>Bitte überprüfe ob deine Angaben vollständig sind
+                {/* Errormessage if a inputfield is empty */}
+                {filled == false &&
+                    <div className='flex justify-center'>
+                        <div className='inline-flex items-center px-4 py-1 mt-6 border-4 rounded-md error-message border-green'>
+                            <span className='mr-3 text-4xl font-extrabold text-green'>!</span>Bitte überprüfe ob deine Angaben vollständig sind
+                        </div>
                     </div>
-                </div>
-            }
-            <StepNavigationBar formData={formData} viewStep={viewStep} setViewStep={setViewStep} setFilledState={setFilledState} />
+                }
+
+                <StepNavigationBar locale={locale} formData={formData} viewStep={viewStep} setViewStep={setViewStep} setFilledState={setFilledState} singleReportData={singleReportData} setSingleReportData={setSingleReportData} closeCurrentReport={closeCurrentReport} />
+            </div>
         </>
     )
 }

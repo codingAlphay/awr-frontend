@@ -12,7 +12,7 @@ export default function NavbarElement({type}) {
         <div className='mx-4'>
             {router.asPath === '/' ? (
                 <Link href={'/'} className='flex text-blue'>
-                    <NavbarIcon type={'generator-active'}/> REPORT-GENERATOR
+                    <NavbarIcon type={'generator-active'}/> REPORT-CREATOR
                 </Link>
             ) : (
                 <Link href={'/'} className='flex text-darkblue navbar-element'>
@@ -42,11 +42,11 @@ export default function NavbarElement({type}) {
     if(type == 'user')
     return (
         <div className='mx-4'>
-            <div className='group relative'>
+            <div className='relative group'>
                 <div className='flex text-darkblue navbar-element'>
                     <NavbarIcon type={'user'}/> <span className='pointer-events-none'>KONTO</span>
                 </div>
-                <div className='absolute hidden text-darkblue uppercase right-0 text-right pt-1 flex-col group-hover:flex'>
+                <div className='absolute right-0 flex-col hidden pt-1 text-right uppercase text-darkblue group-hover:flex'>
                     <Link href={'/settings/personal'} className='py-1 hover:text-green'>
                         <span className='pointer-events-none'>Persönliche&nbsp;Einstellungen</span>
                     </Link>
@@ -63,7 +63,7 @@ export default function NavbarElement({type}) {
     return (
         <div>
             <Link href={'/'}>
-                <img src='./Logo_airco_well.png' className='h-14' alt='Logo' />
+                <img src='/Logo_airco_well.png' className='h-14' alt='Logo' />
             </Link>
         </div>
     )

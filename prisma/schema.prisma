@@ -90,9 +90,13 @@ model reports {
   car_manufacturer  String?   @db.VarChar(255)
   car_model         String?   @db.VarChar(255)
   car_license       String?   @db.VarChar(255)
+  car_year          String?   @db.VarChar(255)
+  car_km            String?   @db.VarChar(255)
   result_before     String?   @db.VarChar(255)
   result_after      String?   @db.VarChar(255)
   recommendation    String?   @db.VarChar(255)
+  cleaned_on_month  String?   @db.VarChar(255)
+  cleaned_on_year   String?   @db.VarChar(255)
   month             String?   @db.VarChar(255)
   year              String?   @db.VarChar(255)
   pf_cleaning       String?   @db.VarChar(255)
@@ -101,6 +105,7 @@ model reports {
   created_user_id   String    @db.VarChar(255)
   created_on        DateTime  @db.DateTime(0)
   last_modified     DateTime? @db.DateTime(0)
+  deleted           String?   @db.VarChar(255)
 }
 
 model strings {
