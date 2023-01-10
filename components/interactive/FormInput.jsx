@@ -12,11 +12,11 @@ export default function FormInput({locale, text, value, id, onChange, checked, t
     return (
         <div className="relative">
             <label for="underline_select" className="sr-only">Empfehlung</label>
-            <select id={id} onChange={onChange} value={value} className="block py-2.5 px-2 w-full text-sm text-darkblue font-bold border-0 border-b-2 border-green appearance-none focus:outline-none focus:ring-0  peer">
+            <select id={id} onChange={onChange} value={value} className="block py-2.5 px-2 w-full text-sm text-darkblue font-bold border-0 border-b-2 border-green appearance-none focus:outline-none focus:ring-0 peer">
                 <option value="1">{t.a_c_done}</option>
                 <option value="2">{t.a_c_recommended}</option>
             </select>
-            <img src='/langicons/chevron.svg' className="absolute w-3 h-3 right-4 top-[15px]" />
+            <img src='/langicons/chevron.svg' className="pointer-events-none absolute w-3 h-3 right-4 top-[15px]" />
         </div>
     )
 

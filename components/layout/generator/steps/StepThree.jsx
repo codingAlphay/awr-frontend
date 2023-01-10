@@ -7,8 +7,8 @@ export default function StepThree({locale, formData, setFormData}) {
         result_before: t.before,
         result_after: t.after,
         recommendation: t.service,
-        cleaned_on_year: 'Gereinigt am (Monat)',
-        cleaned_on_month: 'Gereinigt am (Jahr)',
+        cleaned_on_month: 'Gereinigt am (Monat)',
+        cleaned_on_year: 'Gereinigt am (Jahr)',
         pf_cleaning: t.incl_cleaning_box,
         ev_cleaning: t.incl_cleaning_evaporator,
         pf_change: t.incl_change_filter,
@@ -16,7 +16,7 @@ export default function StepThree({locale, formData, setFormData}) {
         year: t.year,
     }
 
-    const formTable = ['result_before', 'result_after', 'recommendation', 'cleaned_on_year', 'cleaned_on_month', 'pf_cleaning', 'ev_cleaning', 'pf_change', 'month', 'year']
+    const formTable = ['result_before', 'result_after', 'recommendation', 'cleaned_on_month', 'cleaned_on_year', 'pf_cleaning', 'ev_cleaning', 'pf_change', 'month', 'year']
 
     return (
         <div className='mt-12 generator-step-two'>
