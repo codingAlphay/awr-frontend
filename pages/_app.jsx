@@ -14,26 +14,23 @@ import { appWithTranslation } from 'next-i18next'
 
 function MyApp({ Component, pageProps }) {
 
-  function getTranslations() {
-    let t = en
-    const router = useRouter();
-    const { locale } = router;
-    switch (locale) {
-        case'de':
-            t = de
-            break
+  let t = en
+  const router = useRouter();
+  const { locale } = router;
+  switch (locale) {
+      case'de':
+          t = de
+          break
 
-        case'en':
-            t = en
-            break
+      case'en':
+          t = en
+          break
 
-        case'fr':
-            t = fr
-            break
-    }
-    return t
-}
-  const [currentLocale, setLocale] = useState(getTranslations())
+      case'fr':
+          t = fr
+          break
+  }
+  const [currentLocale, setLocale] = useState(t)
 
   let props = {
     ...pageProps,
