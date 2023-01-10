@@ -1,7 +1,7 @@
 import NavbarElement from './NavbarElement'
 import LanguageDropdown from '../../interactive/LanguageDropdown'
 
-export default function Navbar({setLocale}) {
+export default function Navbar({locale, setLocale}) {
 
     return (
         <>
@@ -9,13 +9,13 @@ export default function Navbar({setLocale}) {
                 <div className='flex items-center justify-between mx-auto font-extrabold bg-white h-28 max-w-7xl'>
                     <div className='flex items-center'>
                         <div className='mr-8'>
-                            <NavbarElement type={'logo'}/>
+                            <NavbarElement locale={locale} type={'logo'}/>
                         </div>
-                        <NavbarElement type={'generator'}/>
-                        <NavbarElement type={'archive'}/>
+                        <NavbarElement locale={locale} type={'generator'}/>
+                        <NavbarElement locale={locale} type={'archive'}/>
                     </div>
                     <div className='flex'>
-                        <NavbarElement type={'user'}/>
+                        <NavbarElement locale={locale} type={'user'}/>
                         <LanguageDropdown setLocale={setLocale}/>
                     </div>
                 </div>

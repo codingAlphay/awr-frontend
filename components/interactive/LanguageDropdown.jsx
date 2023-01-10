@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Listbox } from '@headlessui/react'
-import getTranslation from '../../lib/locales/translationsgetter';
 import { useRouter } from 'next/router';
 
 const langs = [
-  { id: 'de', icon: '/langicons/de.svg', name: 'Deutsch', dictionary: getTranslation("de")},
-  { id: 'en', icon: '/langicons/en.svg', name: 'English', dictionary: getTranslation("en")},
-  { id: 'fr', icon: '/langicons/fr.svg', name: 'France', dictionary: getTranslation("fr")},
+  { id: 'de', icon: '/langicons/de.svg', name: 'Deutsch'},
+  { id: 'en', icon: '/langicons/en.svg', name: 'English'},
+  { id: 'fr', icon: '/langicons/fr.svg', name: 'France',},
 ]
 
 export default function LanguageDropdown({setLocale}) {
@@ -16,7 +15,6 @@ export default function LanguageDropdown({setLocale}) {
   const [selectedLanguage, setSelectedLanguage] = useState(langs[currentLanguage])
 
   function changeLanguage(value) {
-    setLocale(value.dictionary)
     setSelectedLanguage(value)
     router.replace(router.pathname, router.pathname, {locale: value.id})
   }

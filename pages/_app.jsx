@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Navbar setLocale={setLocale}/>
+      <Navbar locale={currentLocale} setLocale={setLocale}/>
       <Component {...props} />
       <Footer/>
     </>

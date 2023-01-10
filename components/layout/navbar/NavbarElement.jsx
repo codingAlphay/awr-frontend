@@ -2,10 +2,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import NavbarIcon from '../utils/Icon'
 
-export default function NavbarElement({type}) {
-    
+export default function NavbarElement({locale, type}) {
+    const t = locale
     const router = useRouter()
-    
     //Generator Navbar Element
     if(type == 'generator')
     return (
@@ -48,10 +47,10 @@ export default function NavbarElement({type}) {
                 </div>
                 <div className='absolute right-0 flex-col hidden pt-1 text-right uppercase text-darkblue group-hover:flex'>
                     <Link href={'/settings/personal'} className='py-1 hover:text-green'>
-                        <span className='pointer-events-none'>Persönliche&nbsp;Einstellungen</span>
+                        <p className='pointer-events-none whitespace-nowrap'>{t.user_settings}</p>
                     </Link>
                     <Link href={'/settings/workshop'} className='py-1 hover:text-green'>
-                        <span className='pointer-events-none'>Werkstatt&nbsp;Einstellungen</span>
+                        <p className='pointer-events-none whitespace-nowrap'>{t.workshop_settings}</p>
                     </Link>
                 </div>
             </div>
