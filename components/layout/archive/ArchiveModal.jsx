@@ -47,7 +47,7 @@ export default function ArchiveModal({locale, data, setSingleReportData}) {
 
         {/* ARCHIVE-TABLE */}
         <div className={`mt-4 ${viewSetting == 'list' ? "" : "grid grid-cols-2 md:grid-cols-3 gap-4"}`}>
-          {viewSetting == 'list' && <ReportListElementLegend></ReportListElementLegend>}
+          {viewSetting == 'list' && <ReportListElementLegend locale={locale}/>}
           {dataSet.filter((report) => {
             const creation_date = new Date(report.created_on) // Save date as (Date) variable
             const creation_month = creation_date.getMonth() + 1 // Save month as variable and count +1 (0=jannuary)
@@ -65,7 +65,7 @@ export default function ArchiveModal({locale, data, setSingleReportData}) {
                 {viewSetting === 'list' ? (
                   <ReportListElement report={report} setSingleReportData={setSingleReportData} />
                 ) : (
-                  <ReportTileElement report={report} setSingleReportData={setSingleReportData} />
+                  <ReportTileElement locale={locale} report={report} setSingleReportData={setSingleReportData} />
                 )}
               </div>
             ))}

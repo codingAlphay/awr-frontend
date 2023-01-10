@@ -3,10 +3,10 @@ import { useState } from 'react'
 import ArchiveModal from '../components/layout/archive/ArchiveModal'
 import ReportFormModal from '../components/layout/generator/ReportFormModal'
 
-export default function Archive({locale, data, dataAll }) {
+export default function Archive({currentLocale, data, dataAll }) {
 
   const [singleReportData, setSingleReportData] = useState(null)
-  const [mode, setMode] = useState('Werkstatt')
+  const [mode, setMode] = useState('Tunap')
 
   function handleMode() {
     if (mode == 'Werkstatt') {
@@ -27,21 +27,21 @@ export default function Archive({locale, data, dataAll }) {
       {singleReportData == null ? (
         <>
           <div className='flex justify-center my-2'>
-            <div className='inline p-2 border-4' onClick={() => handleMode()}>{mode} {mode == 'Werkstatt' ? (
+            <div className='inline p-2 border-4' onClick={() => handleMode()}> Ansicht: {mode} {mode == 'Werkstatt' ? (
               <span>(Gelöschte nicht Anzeigen)</span>
             ) : (
               <span>(Gelöschte Anzeigen)</span>
             ) }</div>
           </div>
           <div className={`${mode == 'Werkstatt' ? "" : "hidden"}`}>
-            <ArchiveModal locale={locale} data={data} setSingleReportData={setSingleReportData} />
+            <ArchiveModal locale={currentLocale} data={data} setSingleReportData={setSingleReportData} />
           </div>
           <div className={`${mode == 'Tunap' ? "" : "hidden"}`}>
-            <ArchiveModal locale={locale} data={dataAll} setSingleReportData={setSingleReportData} />
+            <ArchiveModal locale={currentLocale} data={dataAll} setSingleReportData={setSingleReportData} />
           </div>
         </>
       ) : (
-        <ReportFormModal locale={locale} singleReportData={singleReportData} setSingleReportData={setSingleReportData} />
+        <ReportFormModal locale={currentLocale} singleReportData={singleReportData} setSingleReportData={setSingleReportData} />
       )}
     </div>
   )
