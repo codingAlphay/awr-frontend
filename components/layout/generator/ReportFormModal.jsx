@@ -7,6 +7,7 @@ import Title from '../../elements/Title'
 import StepNavigationBar from './utils/StepNavigationBar'
 import Icon from '../utils/Icon'
 import { useState } from 'react'
+import {letsTest} from '../../../lib/databasequeries'
 import Router from 'next/router'
 const uuid = require('uuid')
 
@@ -62,9 +63,9 @@ export default function ReportFormModal({locale, singleReportData, setSingleRepo
 
     return (
         <>
-            <div className='w-full mx-auto max-w-generator'>
+            <div className='w-full max-w-generator px-2 mx-auto'>
                 <ProcessBar step={viewStep} />
-                <div className='px-16 pb-6 pt-11 bg-lightgrey rounded-3xl'>
+                <div className='px-4 pb-6 mx-2 md:px-16 pt-11 bg-lightgrey rounded-3xl'>
                     <div className='flex justify-between'>
                         <ProcessTitleBar step={viewStep} />
                         {singleReportData != null &&
@@ -85,7 +86,6 @@ export default function ReportFormModal({locale, singleReportData, setSingleRepo
                         </div>
                     </div>
                 }
-
                 <StepNavigationBar locale={locale} formData={formData} viewStep={viewStep} setViewStep={setViewStep} setFilledState={setFilledState} singleReportData={singleReportData} setSingleReportData={setSingleReportData} closeCurrentReport={closeCurrentReport} />
             </div>
         </>

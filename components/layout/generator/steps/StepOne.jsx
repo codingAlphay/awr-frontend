@@ -15,10 +15,10 @@ export default function StepOne({locale, formData, setFormData }) {
 
     return (
         <div className='mt-12 generator-step-one'>
-            <div className='flex w-full mt-4'>
+            <div className='md:flex w-full mt-4'>
                 {/* Take only first three form entries */}
                 {formTable.slice(0, 3).map((formElement) => (
-                    <div key={formElement} className='w-1/3 mx-2 first:ml-0 last:mr-0'>
+                    <div key={formElement} className='w-full md:w-1/3 md:mx-2 md:first:ml-0 md:last:mr-0'>
                         <FormInput
                             id={formElement}
                             value={formData[formElement]}

@@ -24,9 +24,9 @@ export default function StepThree({locale, formData, setFormData}) {
                 <div className='my-4'>
                     <Title option={2} value={t.measurement_data + ' *'} />
                 </div>
-                <div className='flex w-2/3 mt-8 ml-1'>
+                <div className='md:flex md:w-2/3 mt-8 ml-1'>
                     {formTable.slice(0, 2).map((formElement) => (
-                        <div key={formElement} className='w-1/2 mx-2 first:ml-0 last:mr-0'>
+                        <div key={formElement} className='w-full md:w-1/2 md:mx-2 md:first:ml-0 md:last:mr-0'>
                             <FormInput
                                 id={formElement}
                                 value={formData[formElement]}
@@ -43,10 +43,10 @@ export default function StepThree({locale, formData, setFormData}) {
                     <Title option={2} value={t.recommendation + ' *'} />
                 </div>
 
-                <div className='flex w-full mt-6'>
+                <div className='flex flex-col md:flex-row w-full mt-6'>
                     <div className='w-3/4'>
                         {formTable.slice(2, 3).map((formElement) => (
-                            <div key={formElement} className='w-full mx-2 first:ml-0 last:mr-0'>
+                            <div key={formElement} className='w-full md:mx-2 md:first:ml-0 md:last:mr-0'>
                                 <FormInput
                                     id={formElement}
                                     value={formData[formElement]}
@@ -56,9 +56,9 @@ export default function StepThree({locale, formData, setFormData}) {
                             </div>
                         ))}
                         {formData.recommendation == '1' && (
-                            <div className='flex w-full mt-8 ml-1'>
+                            <div className='flex flex-col md:flex-row w-full mt-8 ml-1'>
                             {formTable.slice(3, 5).map((formElement) => (
-                                <div key={formElement} className='mx-2 first:ml-0 last:mr-0'>
+                                <div key={formElement} className='w-full md:mx-2 md:first:ml-0 md:last:mr-0'>
                                     <FormInput
                                         id={formElement}
                                         value={formData[formElement]}
@@ -70,7 +70,7 @@ export default function StepThree({locale, formData, setFormData}) {
                         </div>
                         )}
                     </div>
-                    <div className='flex flex-col w-full ml-8'>
+                    <div className='flex flex-col w-full md:ml-8'>
                         {formTable.slice(5, 8).map((formElement) => (
                             <div key={formElement}>
                                 <FormInput
